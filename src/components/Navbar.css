@@ -1,0 +1,444 @@
+/* src/components/Navbar.css */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap");
+@import url("https://fonts.cdnfonts.com/css/creato-display");
+@import url("https://fonts.cdnfonts.com/css/caghen");
+
+:root {
+  --nav-height: 80px;
+  --fg: #fff;
+  --bg-top: transparent; /* Changed to transparent */
+  --bg-scrolled: transparent; /* Changed to transparent */
+}
+
+/* Base Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: none; /* Removed blur completely */
+  background: var(--bg-top);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transform: translateY(0);
+}
+
+.navbar--scrolled {
+  background: var(--bg-scrolled);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.navbar--hidden {
+  transform: translateY(-100%);
+}
+
+.navbar-inner {
+  width: 92%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Brand Logo - Absolute Center */
+.brand {
+  text-decoration: none;
+  color: var(--fg);
+  user-select: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.brand-horizontal {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.brand-flip {
+  font-family: "Creato Display", sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.brand-studio {
+  font-family: "Caghen Demo", serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  margin-left: 2px;
+}
+
+/* Centered Navigation Links */
+.nav-links-centered {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Left links container */
+.nav-links-left {
+  display: flex;
+  gap: 10px;
+  order: 1;
+}
+
+/* Right links container */
+.nav-links-right {
+  display: flex;
+  gap: 10px;
+  order: 3;
+}
+
+/* Logo spacer - occupies center space */
+.logo-spacer {
+  order: 2;
+  width: 200px;
+  height: 1px;
+  flex-shrink: 0;
+}
+
+/* Navigation Links */
+.nav-link {
+  color: var(--fg);
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 6px 8px;
+  border-radius: 8px;
+  overflow: visible;
+  position: relative;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+/* Brand animation (staggered FLIP → STUDIO) */
+.brand-letter-container {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 1em;
+}
+
+.brand-letter,
+.brand-letter-clone {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay);
+}
+
+.brand-letter-clone {
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+/* On hover — smooth stairway rise */
+.brand:hover .brand-letter {
+  transform: translateY(-100%);
+}
+
+.brand:hover .brand-letter-clone {
+  transform: translateY(-100%);
+}
+
+/* Letter Animation for Nav Links */
+.letter-container {
+  display: inline-block;
+  position: relative;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.letter,
+.letter-clone {
+  display: inline-block;
+  position: relative;
+  transform: translateY(0);
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay);
+}
+
+.letter-clone {
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+/* Hover animation — vertical stairway with smooth rise */
+.nav-link:hover .letter {
+  transform: translateY(-100%);
+}
+
+.nav-link:hover .letter-clone {
+  transform: translateY(-100%);
+}
+
+/* Let's Talk Button Styles - Sleek Expanding Design */
+.lets-talk-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--fg);
+  padding: 8px 12px;
+  border-radius: 50px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  right: 60px; /* Position to the left of hamburger menu */
+  overflow: hidden;
+  width: 44px;
+  height: 44px;
+  white-space: nowrap;
+  pointer-events: auto;
+  outline: none; /* Remove outline */
+}
+
+.lets-talk-btn:hover {
+  width: 140px;
+  gap: 8px;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.lets-talk-btn:focus {
+  outline: none; /* Remove focus outline */
+  border-color: rgba(255, 255, 255, 0.6); /* Keep border color change on focus */
+}
+
+.lets-talk-emoji {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  min-width: 20px;
+  text-align: center;
+}
+
+.lets-talk-btn:hover .lets-talk-emoji {
+  transform: scale(1.1);
+}
+
+.lets-talk-text {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.lets-talk-btn:hover .lets-talk-text {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.1s;
+}
+
+/* Mobile Let's Talk Button */
+.mobile-lets-talk-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  outline: none; /* Remove outline for mobile button too */
+}
+
+.mobile-lets-talk-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.mobile-lets-talk-btn:focus {
+  outline: none; /* Remove focus outline for mobile */
+}
+
+/* Hamburger Button (Mobile Only) */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  outline: none;
+}
+
+.hamburger-box {
+  width: 26px;
+  height: 18px;
+  position: relative;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  transition: transform 0.25s ease;
+}
+
+.hamburger-inner {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-inner::before {
+  top: -6px;
+}
+
+.hamburger-inner::after {
+  top: 6px;
+}
+
+/* Hamburger active state */
+.hamburger.is-active .hamburger-inner {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.hamburger.is-active .hamburger-inner::before {
+  transform: rotate(-90deg) translateX(-6px);
+}
+
+.hamburger.is-active .hamburger-inner::after {
+  opacity: 0;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu.is-active {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.mobile-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.mobile-link {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Active state for nav links */
+.nav-link.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 980px) {
+  .nav-links-centered,
+  .nav-links-left,
+  .nav-links-right {
+    display: none;
+  }
+
+  .brand {
+    position: static;
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .brand-flip {
+    font-size: 24px;
+  }
+
+  .brand-studio {
+    font-size: 18px;
+  }
+
+  .navbar-inner {
+    justify-content: space-between;
+  }
+
+  .lets-talk-btn {
+    display: none; /* Hide on mobile - we'll show it in the mobile menu */
+  }
+}
+
+/* Ensure hamburger menu and let's talk button don't overlap */
+@media (min-width: 981px) {
+  .hamburger {
+    right: 0;
+  }
+  
+  .lets-talk-btn {
+    right: 60px;
+  }
+}

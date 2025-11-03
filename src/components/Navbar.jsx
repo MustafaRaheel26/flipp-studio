@@ -1,0 +1,174 @@
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import Cursor from "./Cursor";
+import "./Navbar.css";
+
+// src/components/Navbar.jsx - Updated links
+const NAV_LINKS = [
+  { name: "Projects", path: "/projects" },
+  { name: "Services", path: "/services" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
+];
+
+// Split text utility for nav links
+const SplitText = ({ text }) => (
+  <>
+    {text.split("").map((letter, i) => (
+      <span
+        key={i}
+        className="letter-container"
+        style={{ ["--delay"]: `${i * 60}ms` }}
+      >
+        <span className="letter">{letter}</span>
+        <span className="letter-clone" aria-hidden>
+          {letter}
+        </span>
+      </span>
+    ))}
+  </>
+);
+
+// Split logo with delay offset between "FLIP" and "STUDIO"
+const LogoText = ({ text, baseDelay = 0 }) => (
+  <>
+    {text.split("").map((letter, i) => (
+      <span
+        key={i}
+        className="brand-letter-container"
+        style={{ ["--delay"]: `${baseDelay + i * 70}ms` }}
+      >
+        <span className="brand-letter">{letter}</span>
+        <span className="brand-letter-clone" aria-hidden>
+          {letter}
+        </span>
+      </span>
+    ))}
+  </>
+);
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Check if scrolled past 50px for background change
+      setScrolled(currentScrollY > 50);
+      
+      // Hide/show navbar logic
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past 100px - hide navbar
+        setVisible(false);
+      } else {
+        // Scrolling up - show navbar
+        setVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const closeMenu = () => setMenuOpen(false);
+
+  const handleLetsTalk = () => {
+    // Add your "Let's Talk" button functionality here
+    console.log("Let's Talk button clicked!");
+    // You can redirect to contact page or open a modal, etc.
+  };
+
+  return (
+    <>
+      <Cursor />
+      <header 
+        className={`navbar ${scrolled ? "navbar--scrolled" : "navbar--top"} ${!visible ? "navbar--hidden" : ""}`}
+      >
+        <div className="navbar-inner">
+          {/* Brand Logo - Centered */}
+          <Link to="/" className="brand" onClick={closeMenu} aria-label="FlipStudio home">
+            <div className="brand-horizontal">
+              <div className="brand-flip">
+                <LogoText text="FLIP" baseDelay={0} />
+              </div>
+              <div className="brand-studio">
+                <LogoText text="STUDIO" baseDelay={350} />
+              </div>
+            </div>
+          </Link>
+
+          {/* Navigation Links - Centered around logo */}
+          <nav className="nav-links-centered">
+            <div className="nav-links-left">
+              {NAV_LINKS.slice(0, 2).map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`nav-link ${location.pathname === link.path ? "active" : ""}`}
+                  onClick={closeMenu}
+                >
+                  <SplitText text={link.name} />
+                </Link>
+              ))}
+            </div>
+            
+            <div className="logo-spacer"></div>
+            
+            <div className="nav-links-right">
+              {NAV_LINKS.slice(2, 4).map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`nav-link ${location.pathname === link.path ? "active" : ""}`}
+                  onClick={closeMenu}
+                >
+                  <SplitText text={link.name} />
+                </Link>
+              ))}
+            </div>
+          </nav>
+
+          {/* Let's Talk Button - Added to the right */}
+          <button className="lets-talk-btn" onClick={handleLetsTalk} aria-label="Let's Talk">
+            <span className="lets-talk-emoji">💬</span>
+            <span className="lets-talk-text">Let's Talk</span>
+          </button>
+
+          <button
+            className={`hamburger ${menuOpen ? "is-active" : ""}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <div className="hamburger-box">
+              <div className="hamburger-inner" />
+            </div>
+          </button>
+        </div>
+      </header>
+
+      <div className={`mobile-menu ${menuOpen ? "is-active" : ""}`}>
+        <div className="mobile-menu-content">
+          <button className="mobile-close" onClick={closeMenu}>✕</button>
+          {NAV_LINKS.map((link) => (
+            <Link key={link.name} to={link.path} className="mobile-link" onClick={closeMenu}>
+              <SplitText text={link.name} />
+            </Link>
+          ))}
+          {/* Let's Talk button in mobile menu */}
+          <button className="mobile-lets-talk-btn" onClick={handleLetsTalk}>
+            <span className="lets-talk-emoji">💬</span>
+            <span className="lets-talk-text">Let's Talk</span>
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}

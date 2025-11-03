@@ -1,0 +1,168 @@
+/* src/components/EnhancedPreloader.css */
+@import url('https://fonts.cdnfonts.com/css/creato-display');
+@import url('https://fonts.cdnfonts.com/css/caghen');
+
+.enhanced-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.preloader-content {
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+}
+
+.flip, .studio {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Adjusted sizes - FLIP smaller, STUDIO balanced */
+.flip {
+  font-family: 'Creato Display', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.5rem, 8vw, 5rem);
+  color: white;
+  line-height: 0.9;
+  display: flex;
+}
+
+.studio {
+  font-family: 'Caghen Demo', serif;
+  font-weight: 300; /* Much less bold */
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: white;
+  line-height: 1;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+/* Individual letter containers for FLIP */
+.letter-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* Special F letter with flip animation */
+.f-letter {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.f-front, .f-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.f-back {
+  transform: rotateY(180deg);
+}
+
+/* Enhanced animation layers */
+.text-stroke {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  -webkit-text-stroke: 1.5px #fff;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(-110%);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.text-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #fff 0%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(-110%);
+  opacity: 0.8;
+}
+
+.text-final {
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .logo-wrapper {
+    gap: 10px;
+  }
+  
+  .flip {
+    font-size: clamp(3rem, 9vw, 4rem);
+  }
+  
+  .studio {
+    font-size: clamp(2rem, 5.5vw, 2.8rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .flip {
+    font-size: clamp(2.8rem, 12vw, 3.5rem);
+  }
+  
+  .studio {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flip {
+    font-size: clamp(2.5rem, 14vw, 3rem);
+  }
+  
+  .studio {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+  }
+}
+
+/* Hide navbar and other content when preloader is active */
+body.preloader-active {
+  overflow: hidden !important;
+}
+
+body.preloader-active .navbar,
+body.preloader-active .app-content {
+  display: none !important;
+}
