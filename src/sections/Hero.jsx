@@ -96,72 +96,117 @@ export default function Hero() {
         ))}
       </AnimatePresence>
 
-      {/* Content - UPDATED: Proper center alignment */}
+      {/* Content - UPDATED: Perfect center alignment */}
       <div className="hero-content">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+            initial={{ 
+              opacity: 0, 
+              y: 80, 
+              rotateX: 45,
+              scale: 0.9,
+              filter: "blur(15px)"
+            }}
             animate={{ 
               opacity: 1, 
               y: 0, 
+              rotateX: 0,
+              scale: 1,
               filter: "blur(0px)",
               transition: {
-                duration: 0.8,
-                ease: "easeOut"
+                duration: 0.9,
+                ease: [0.25, 0.46, 0.45, 0.94],
               }
             }}
             exit={{ 
               opacity: 0, 
-              y: -50, 
-              filter: "blur(10px)",
+              y: -80, 
+              rotateX: -45,
+              scale: 1.1,
+              filter: "blur(15px)",
               transition: {
-                duration: 0.6,
+                duration: 0.7,
                 ease: "easeIn"
               }
+            }}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '100%',
+              textAlign: 'center'
             }}
           >
             <motion.h1 
               className="hero-title"
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ 
+                scale: 0.8, 
+                opacity: 0,
+                y: 60,
+                rotateY: 30 
+              }}
               animate={{ 
                 scale: 1, 
                 opacity: 1,
+                y: 0,
+                rotateY: 0,
                 transition: {
-                  delay: 0.2,
-                  duration: 0.7,
-                  ease: "backOut"
+                  delay: 0.1,
+                  duration: 0.8,
+                  ease: [0.34, 1.56, 0.64, 1],
                 }
               }}
             >
               {heroSlides[currentSlide].title}
             </motion.h1>
             
-            <motion.p 
-              className="hero-subtitle"
-              initial={{ y: 30, opacity: 0 }}
+            {/* UPDATED: Center aligned subtitle container */}
+            <motion.div 
+              style={{ 
+                margin: '15px 0',
+                display: 'flex',
+                justifyContent: 'center',
+                width: '100%'
+              }}
+              initial={{ 
+                y: 40, 
+                opacity: 0,
+                scale: 0.95 
+              }}
               animate={{ 
                 y: 0, 
                 opacity: 1,
+                scale: 1,
                 transition: {
-                  delay: 0.4,
-                  duration: 0.6,
-                  ease: "easeOut"
+                  delay: 0.3,
+                  duration: 0.7,
+                  ease: [0.25, 0.46, 0.45, 0.94],
                 }
               }}
             >
-              {heroSlides[currentSlide].subtitle}
-            </motion.p>
+              <p className="hero-subtitle">
+                {heroSlides[currentSlide].subtitle}
+              </p>
+            </motion.div>
             
+            {/* UPDATED: Center aligned button container */}
             <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
+              className="hero-cta-container"
+              initial={{ 
+                scale: 0.5, 
+                opacity: 0,
+                y: 30 
+              }}
               animate={{ 
                 scale: 1, 
                 opacity: 1,
+                y: 0,
                 transition: {
-                  delay: 0.6,
-                  duration: 0.5,
-                  ease: "circOut"
+                  delay: 0.5,
+                  duration: 0.6,
+                  ease: [0.34, 1.56, 0.64, 1],
                 }
               }}
             >

@@ -1,8 +1,25 @@
 /* ===== Base Styles ===== */
+
+@font-face {
+  font-family: 'Rollgates Luxury';
+  src: url('../assets/fonts/Rollgates Luxury.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Branch';
+  src: url('../assets/fonts/Branch.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .about-page {
   background: #000;
   color: #fff;
-  font-family: "Inter", "Poppins", sans-serif;
+  font-family: "Branch", sans-serif;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -31,14 +48,24 @@
   line-height: 1.1;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 .about-subtitle {
   font-size: clamp(0.95rem, 2vw, 1.1rem);
-  color: #ccc;
-  line-height: 1.8;
+  line-height: 1.9;
   max-width: 700px;
   margin: 0 auto;
+  /* Changed to Branch font with readability improvements */
+  font-family: 'Branch', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #ddd;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1;
 }
 
 /* ===== Parallax Card Container ===== */
@@ -93,6 +120,8 @@
   font-weight: 600;
   margin-bottom: clamp(1rem, 3vw, 2rem);
   letter-spacing: -0.01em;
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 .card-content-wrap {
@@ -100,10 +129,18 @@
 }
 
 .card-text {
-  font-size: clamp(0.95rem, 2vw, 1.05rem);
-  line-height: 1.8;
-  color: #bbb;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  line-height: 1.85;
   margin-bottom: 1.5rem;
+  /* Changed to Branch font with readability improvements */
+  font-family: 'Branch', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.035em;
+  color: #ccc;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1;
 }
 
 /* ===== Statistics Section ===== */
@@ -151,6 +188,8 @@
   margin-bottom: 1rem;
   line-height: 1;
   text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 .stat-label {
@@ -160,13 +199,23 @@
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 .stat-desc {
-  font-size: clamp(0.9rem, 2vw, 0.95rem);
-  color: #aaa;
-  line-height: 1.6;
+  font-size: clamp(0.95rem, 2.1vw, 1rem);
+  line-height: 1.75;
   margin: 0;
+  /* Changed to Branch font with readability improvements */
+  font-family: 'Branch', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #bbb;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1;
 }
 
 /* ===== Values Section ===== */
@@ -224,14 +273,24 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 .value-desc {
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  color: #aaa;
-  line-height: 1.6;
+  font-size: clamp(0.95rem, 2.1vw, 1rem);
+  line-height: 1.8;
   text-align: center;
   margin: 0;
+  /* Changed to Branch font with readability improvements */
+  font-family: 'Branch', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.035em;
+  color: #bbb;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1;
 }
 
 /* ===== Process Section ===== */
@@ -280,18 +339,30 @@
   color: #666;
   margin-right: clamp(1rem, 3vw, 2rem);
   min-width: clamp(40px, 10vw, 60px);
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 .process-title {
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   margin-bottom: 0.5rem;
   font-weight: 600;
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 .process-desc {
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  color: #bbb;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 2.1vw, 1rem);
+  line-height: 1.85;
+  /* Changed to Branch font with readability improvements */
+  font-family: 'Branch', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #ccc;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1;
 }
 
 /* ===== Team Section ===== */
@@ -368,6 +439,8 @@
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   margin-bottom: 0.3rem;
   font-weight: 600;
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 .team-role {
@@ -376,20 +449,37 @@
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 .team-bio {
-  color: #bbb;
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 2.1vw, 1rem);
+  line-height: 1.8;
   margin-bottom: 1rem;
+  /* Changed to Branch font with readability improvements */
+  font-family: 'Branch', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  color: #ccc;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1;
 }
 
 .team-achievements {
-  color: #888;
-  font-size: clamp(0.85rem, 1.8vw, 0.9rem);
-  font-style: italic;
-  line-height: 1.6;
+  font-size: clamp(0.9rem, 1.9vw, 0.95rem);
+  line-height: 1.75;
+  /* Changed to Branch font with readability improvements */
+  font-family: 'Branch', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #aaa;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1;
 }
 
 /* ===== Final Section ===== */
@@ -407,6 +497,8 @@
   margin: 0 auto;
   line-height: 1.5;
   letter-spacing: -0.01em;
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 /* ===== Responsive Design ===== */

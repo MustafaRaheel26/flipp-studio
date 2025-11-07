@@ -1,4 +1,21 @@
 /* src/components/AdvancedFooter.css */
+
+@font-face {
+  font-family: 'Rollgates Luxury';
+  src: url('../assets/fonts/Rollgates Luxury.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Branch';
+  src: url('../assets/fonts/Branch.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .advanced-footer {
   background: #000;
   color: #fff;
@@ -6,6 +23,8 @@
   padding: 80px 0 40px;
   position: relative;
   overflow: hidden;
+  /* Base font set to Branch */
+  font-family: 'Branch', sans-serif;
 }
 
 .footer-inner {
@@ -59,6 +78,8 @@
   line-height: 1.6;
   color: rgba(255,255,255,0.7);
   max-width: 300px;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 .footer-sections {
@@ -74,6 +95,8 @@
   margin-bottom: 25px;
   color: #fff;
   font-weight: 600;
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 /* Flip Links */
@@ -114,6 +137,8 @@
   color: rgba(255,255,255,0.8);
   font-size: 0.9rem;
   transition: color 0.3s ease;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 .flip-link-back {
@@ -121,6 +146,8 @@
   transform: rotateX(180deg);
   font-size: 1rem;
   font-weight: 600;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 .flip-link:hover .flip-link-front {
@@ -137,6 +164,8 @@
 .footer-link {
   color: rgba(255,255,255,0.8);
   font-size: 0.9rem;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 .link-content {
@@ -222,6 +251,8 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 .footer-legal {
@@ -236,6 +267,8 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: color 0.3s ease;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 .footer-legal a:hover {

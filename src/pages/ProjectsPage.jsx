@@ -9,45 +9,75 @@ import {
 } from "../data/projectsData";
 import "./ProjectsPage.css";
 
+// Layout configuration - easily customizable
+const LAYOUT_CONFIG = {
+  patterns: [
+    ['portrait', 'landscape', 'square', 'portrait'],
+    ['landscape', 'square', 'portrait', 'landscape'],
+    ['square', 'portrait', 'landscape', 'square'],
+    ['portrait', 'square', 'landscape', 'portrait']
+  ],
+  gridColumns: {
+    desktop: 4,
+    tablet: 3,
+    mobile: 2,
+    smallMobile: 1
+  },
+  cardHeights: {
+    portrait: { desktop: 600, tablet: 450, mobile: 300 },
+    landscape: { desktop: 300, tablet: 250, mobile: 200 },
+    square: { desktop: 300, tablet: 250, mobile: 200 }
+  }
+};
+
 const ProjectsPage = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [isLoading, setIsLoading] = useState(false);
   const [currentProjects, setCurrentProjects] = useState([]);
   const [expandedProjects, setExpandedProjects] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const sliderRef = useRef(null);
   const location = useLocation();
 
-  // Expand projects by repeating and mixing layouts
+  // Track window width for responsive layout
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Get responsive grid columns based on screen size
+  const getGridColumns = () => {
+    if (windowWidth < 480) return LAYOUT_CONFIG.gridColumns.smallMobile;
+    if (windowWidth < 768) return LAYOUT_CONFIG.gridColumns.mobile;
+    if (windowWidth < 1024) return LAYOUT_CONFIG.gridColumns.tablet;
+    return LAYOUT_CONFIG.gridColumns.desktop;
+  };
+
+  // Smart layout distribution that fills all spaces
   const expandProjects = (projects) => {
     if (projects.length === 0) return [];
     
+    const gridColumns = getGridColumns();
+    const totalCards = Math.max(projects.length * 2, 12); // Ensure enough cards
     const expanded = [];
-    const totalCards = 12; // Target number of cards
     
-    while (expanded.length < totalCards) {
-      projects.forEach(project => {
-        if (expanded.length < totalCards) {
-          expanded.push({
-            ...project,
-            layout: getLayoutType(expanded.length),
-            uniqueId: `${project.id}-${expanded.length}`
-          });
-        }
+    // Use pattern based on grid columns
+    const pattern = LAYOUT_CONFIG.patterns[gridColumns % LAYOUT_CONFIG.patterns.length];
+    
+    for (let i = 0; i < totalCards; i++) {
+      const project = projects[i % projects.length];
+      const layout = pattern[i % pattern.length];
+      
+      expanded.push({
+        ...project,
+        layout: layout,
+        uniqueId: `${project.id}-${i}-${layout}`,
+        index: i
       });
     }
     
     return expanded;
-  };
-
-  // More controlled layout pattern
-  const getLayoutType = (index) => {
-    const patterns = [
-      'portrait', 'landscape', 'square',
-      'landscape', 'portrait', 'square',
-      'square', 'portrait', 'landscape',
-      'portrait', 'square', 'landscape'
-    ];
-    return patterns[index % patterns.length];
   };
 
   // Get all projects for "ALL" category
@@ -70,7 +100,7 @@ const ProjectsPage = () => {
     
     setCurrentProjects(projects);
     setExpandedProjects(expandProjects(projects));
-  }, [location, activeCategory]);
+  }, [location, activeCategory, windowWidth]); // Added windowWidth dependency
 
   const handleCategoryChange = (categoryId) => {
     setIsLoading(true);
@@ -150,6 +180,9 @@ const ProjectsPage = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
+              style={{
+                '--grid-columns': getGridColumns()
+              }}
             >
               {expandedProjects.map((project, index) => (
                 <ProjectCard 
@@ -157,6 +190,7 @@ const ProjectsPage = () => {
                   project={project} 
                   index={index}
                   layout={project.layout}
+                  windowWidth={windowWidth}
                 />
               ))}
             </motion.div>
@@ -169,17 +203,37 @@ const ProjectsPage = () => {
   );
 };
 
-const ProjectCard = ({ project, index, layout }) => {
+const ProjectCard = ({ project, index, layout, windowWidth }) => {
+  const getCardHeight = () => {
+    if (windowWidth < 480) return 250;
+    if (windowWidth < 768) return LAYOUT_CONFIG.cardHeights[layout].mobile;
+    if (windowWidth < 1024) return LAYOUT_CONFIG.cardHeights[layout].tablet;
+    return LAYOUT_CONFIG.cardHeights[layout].desktop;
+  };
+
   return (
     <motion.div
       className={`project-card project-card-${layout}`}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ 
+        duration: 0.5, 
+        delay: index * 0.05,
+        type: "spring",
+        stiffness: 100
+      }}
+      style={{
+        '--card-height': `${getCardHeight()}px`
+      }}
     >
       <Link to={`/projects/${project.slug}`} className="project-card-link">
         <div className="project-image-container">
-          <img src={project.image} alt={project.title} className="project-image" />
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            className="project-image"
+            loading="lazy"
+          />
           
           {/* Always visible project name */}
           <div className="project-name-static">

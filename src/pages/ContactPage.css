@@ -1,4 +1,21 @@
 /* ===== Overall Page Container ===== */
+
+@font-face {
+  font-family: 'Rollgates Luxury';
+  src: url('../assets/fonts/Rollgates Luxury.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Branch';
+  src: url('../assets/fonts/Branch.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .contact-sheet {
   position: relative;
   width: 100%;
@@ -9,7 +26,9 @@
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
-  padding-top: 140px; /* offset navbar */
+  padding-top: 140px;
+  /* Base font set to Branch */
+  font-family: 'Branch', sans-serif;
 }
 
 /* ===== Content Layout ===== */
@@ -20,13 +39,15 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 5rem;
-  flex-wrap: wrap;
 }
 
 /* ===== Left Section ===== */
 .contact-left {
   flex: 1;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .contact-heading {
@@ -35,13 +56,9 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-}
-
-@media (max-width: 768px) {
-  .contact-heading {
-    font-size: 3.5rem;
-    text-align: center;
-  }
+  text-align: left;
+  /* Changed to Rollgates Luxury font */
+  font-family: 'Rollgates Luxury', sans-serif;
 }
 
 /* ===== Right Section ===== */
@@ -50,6 +67,7 @@
   min-width: 350px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 2rem;
 }
 
@@ -59,6 +77,9 @@
   line-height: 1.6;
   color: #aaa;
   max-width: 500px;
+  text-align: left;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 /* ===== Form ===== */
@@ -67,10 +88,12 @@
   flex-direction: column;
   gap: 1.8rem;
   width: 100%;
+  align-items: flex-start;
 }
 
 .form-group {
   position: relative;
+  width: 100%;
 }
 
 .form-group input,
@@ -84,6 +107,8 @@
   color: #fff;
   outline: none;
   transition: border-color 0.3s ease;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 .form-group input:focus,
@@ -99,6 +124,8 @@
   font-size: 1rem;
   pointer-events: none;
   transition: all 0.3s ease;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 .form-group input:focus + label,
@@ -113,7 +140,6 @@
 /* ===== Send Button ===== */
 .contact-submit {
   position: relative;
-  align-self: flex-end;
   background: transparent;
   color: #fff;
   padding: 0.9rem 2.8rem;
@@ -124,6 +150,9 @@
   overflow: hidden;
   text-transform: uppercase;
   transition: all 0.4s ease;
+  align-self: flex-end;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 .send-text {
@@ -152,25 +181,49 @@
   background: #000;
 }
 
-/* ===== Responsive Design ===== */
+/* ===== Tablet (768px - 1024px) ===== */
 @media (max-width: 1024px) {
   .contact-container {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    gap: 3rem;
+    align-items: flex-start; /* Changed from center */
   }
 
+  .contact-left,
   .contact-right {
-    align-items: center;
+    width: 100%;
+    max-width: none;
+  }
+
+  .contact-heading {
+    font-size: 4rem;
+    text-align: left; /* Ensure left aligned */
+  }
+
+  .contact-subtitle {
+    text-align: left; /* Ensure left aligned */
   }
 
   .contact-form {
-    width: 100%;
-    max-width: 500px;
+    max-width: none;
+  }
+}
+
+/* ===== Mobile (< 768px) ===== */
+@media (max-width: 768px) {
+  .contact-heading {
+    font-size: 3.5rem;
+    text-align: center; /* Center only on mobile */
+  }
+
+  .contact-subtitle {
+    text-align: center; /* Center only on mobile */
   }
 
   .contact-submit {
-    align-self: center;
+    align-self: center; /* Center only on mobile */
+    width: 100%;
+    max-width: 200px;
   }
 }
 
@@ -181,6 +234,9 @@
   text-align: center;
   font-weight: 500;
   font-size: 0.9rem;
+  width: 100%;
+  /* Changed to Branch font */
+  font-family: 'Branch', sans-serif;
 }
 
 .status-message.success {

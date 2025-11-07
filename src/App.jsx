@@ -13,6 +13,7 @@ import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import ServicePage from "./pages/ServicesPage";
 import ServiceDetailPage from './pages/ServiceDetailPage';
+import ContactInfoPage from "./pages/ContactInfoPage"; // Add this import
 
 import "./index.css";
 
@@ -31,6 +32,8 @@ function AnimatedRoutes() {
         <Route path="/services" element={<ServicePage />} />
         {/* Add ServiceDetailPage route */}
         <Route path="/services/:slug" element={<ServiceDetailPage />} />
+        {/* Add ContactInfoPage route */}
+        <Route path="/branches" element={<ContactInfoPage />} />
       </Routes>
     </AnimatePresence>
   );
