@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+.home-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
