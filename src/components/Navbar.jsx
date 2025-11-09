@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cursor from "./Cursor";
 import "./Navbar.css";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/logo.png";
 
 // Navigation links - Contact link goes to ContactInfoPage (/branches)
 const NAV_LINKS = [
@@ -172,4 +172,5 @@ export default function Navbar() {
       </div>
     </>
   );
+
 }
