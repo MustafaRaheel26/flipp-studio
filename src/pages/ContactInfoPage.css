@@ -1,16 +1,16 @@
 /* ContactInfoPage.css */
 
 @font-face {
-  font-family: 'Rollgates Luxury';
-  src: url('../assets/fonts/Rollgates Luxury.ttf') format('truetype');
+  font-family: 'NeueHaasDisplayBold';
+  src: url('../assets/fonts/NeueHaasDisplayBold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Branch';
-  src: url('../assets/fonts/Branch.ttf') format('truetype');
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -21,7 +21,7 @@
   background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #2d2d2d 100%);
   display: flex;
   flex-direction: column;
-  font-family: 'Branch', sans-serif; /* Changed to Branch font */
+  font-family: 'Poppins', sans-serif; /* Changed to Poppins font */
   position: relative;
   overflow-x: hidden;
 }
@@ -137,8 +137,8 @@
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  /* Changed to NeueHaasDisplayBold font */
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .title-word {
@@ -174,8 +174,8 @@
   font-weight: 300;
   opacity: 0;
   animation: fadeInUp 1s ease-out 0.9s forwards;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Centered branches list - effects preserved exactly */
@@ -247,8 +247,8 @@
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: calc(var(--animation-order, 0) * 0.1s + 0.3s);
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  /* Changed to NeueHaasDisplayBold font */
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .branch-item-simple:hover .branch-name-simple {
@@ -266,8 +266,8 @@
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: calc(var(--animation-order, 0) * 0.1s + 0.5s);
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .branch-item-simple:hover .branch-address-simple {
@@ -328,8 +328,8 @@
   letter-spacing: 1.2px;
   font-weight: 400;
   transition: all 0.3s ease;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .contact-item-simple:hover .contact-text-simple {
@@ -367,8 +367,8 @@
   gap: 8px;
   opacity: 0;
   animation: missionReveal 2s ease-out 1.8s forwards;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .mission-word {
@@ -425,8 +425,8 @@
   font-weight: 700;
   color: #b8860b;
   margin-bottom: 8px;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  /* Changed to NeueHaasDisplayBold font */
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .stat-label {
@@ -434,8 +434,8 @@
   color: #cccccc;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Footer wrapper */

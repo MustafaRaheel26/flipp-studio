@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cursor from "./Cursor";
 import "./Navbar.css";
+import Logo from "../assets/Logo.png";
 
 // Navigation links - Contact link goes to ContactInfoPage (/branches)
 const NAV_LINKS = [
@@ -22,24 +23,6 @@ const SplitText = ({ text }) => (
       >
         <span className="letter">{letter}</span>
         <span className="letter-clone" aria-hidden>
-          {letter}
-        </span>
-      </span>
-    ))}
-  </>
-);
-
-// Split logo text with delay
-const LogoText = ({ text, baseDelay = 0 }) => (
-  <>
-    {text.split("").map((letter, i) => (
-      <span
-        key={i}
-        className="brand-letter-container"
-        style={{ ["--delay"]: `${baseDelay + i * 70}ms` }}
-      >
-        <span className="brand-letter">{letter}</span>
-        <span className="brand-letter-clone" aria-hidden>
           {letter}
         </span>
       </span>
@@ -90,20 +73,19 @@ export default function Navbar() {
         }`}
       >
         <div className="navbar-inner">
-          {/* Brand Logo */}
+          {/* Brand Logo - Updated to use image */}
           <Link
             to="/"
             className="brand"
             onClick={closeMenu}
             aria-label="FlipStudio home"
           >
-            <div className="brand-horizontal">
-              <div className="brand-flip">
-                <LogoText text="FLIP" baseDelay={0} />
-              </div>
-              <div className="brand-studio">
-                <LogoText text="STUDIO" baseDelay={350} />
-              </div>
+            <div className="logo-container">
+              <img 
+                src={Logo} 
+                alt="Flip Studio" 
+                className="logo-image"
+              />
             </div>
           </Link>
 

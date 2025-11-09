@@ -1,12 +1,28 @@
-/* src/components/Navbar.css */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap");
 @import url("https://fonts.cdnfonts.com/css/creato-display");
 @import url("https://fonts.cdnfonts.com/css/caghen");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 /* Add font-face declaration */
 @font-face {
-  font-family: 'Coldiac';
-  src: url('../assets/fonts/Coldiac.ttf') format('truetype');
+  font-family: "NeueHaasDisplayBold";
+  src: url("../assets/fonts/NeueHaasDisplayBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Coldiac";
+  src: url("../assets/fonts/Coldiac.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -15,8 +31,8 @@
 :root {
   --nav-height: 80px;
   --fg: #fff;
-  --bg-top: transparent; /* Changed to transparent */
-  --bg-scrolled: transparent; /* Changed to transparent */
+  --bg-top: transparent;
+  --bg-scrolled: transparent;
 }
 
 /* Base Navbar Styling */
@@ -30,16 +46,21 @@
   align-items: center;
   justify-content: center;
   z-index: 10000;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  backdrop-filter: none; /* Removed blur completely */
-  background: var(--bg-top);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-color 0.2s ease, backdrop-filter 0.2s ease;
+  backdrop-filter: none;
+  background: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   transform: translateY(0);
 }
 
-.navbar--scrolled {
-  background: var(--bg-scrolled);
+/* Show dark background when scrolled OR when reappearing after being hidden */
+.navbar--scrolled,
+.navbar:not(.navbar--top) {
+  background: #000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .navbar--hidden {
@@ -55,7 +76,7 @@
   position: relative;
 }
 
-/* Brand Logo - Absolute Center */
+/* Logo Image Styles */
 .brand {
   text-decoration: none;
   color: var(--fg);
@@ -68,26 +89,32 @@
   pointer-events: auto;
 }
 
-.brand-horizontal {
+.logo-container {
   display: flex;
-  align-items: baseline;
-  gap: 0;
+  align-items: center;
+  justify-content: center;
 }
 
-.brand-flip {
-  font-family: "Creato Display", sans-serif;
-  font-weight: 800;
-  font-size: 28px;
-  letter-spacing: 0.12em;
-  line-height: 1;
+.logo-image {
+  height: 45px; /* Increased size for better visibility */
+  width: auto;
+  transition: all 0.3s ease;
+  /* Removed the white filter - logo will display in its original colors */
 }
 
-.brand-studio {
-  font-family: "Caghen Demo", serif;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 1;
-  margin-left: 2px;
+/* Optional: Add hover effect */
+.brand:hover .logo-image {
+  transform: scale(1.08);
+}
+
+/* Remove old brand text styles */
+.brand-horizontal,
+.brand-flip,
+.brand-studio,
+.brand-letter-container,
+.brand-letter,
+.brand-letter-clone {
+  display: none;
 }
 
 /* Centered Navigation Links */
@@ -104,14 +131,14 @@
 /* Left links container */
 .nav-links-left {
   display: flex;
-  gap: 10px;
+  gap: 20px; /* Increased gap for better spacing */
   order: 1;
 }
 
 /* Right links container */
 .nav-links-right {
   display: flex;
-  gap: 10px;
+  gap: 20px; /* Increased gap for better spacing */
   order: 3;
 }
 
@@ -123,59 +150,39 @@
   flex-shrink: 0;
 }
 
-/* Navigation Links */
+/* Navigation Links - Enhanced visibility */
 .nav-link {
   color: var(--fg);
   text-decoration: none;
-  font-family: "Coldiac", sans-serif;
-  font-weight: bolder;
-  font-size: 14px;
-  letter-spacing: 0.18em;
+  font-family: "Poppins", sans-serif; /* Changed from Coldiac to Poppins */
+  font-weight: 500; /* Adjusted weight for Poppins */
+  font-size: 14px; /* Slightly adjusted size */
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   display: inline-block;
-  padding: 6px 8px;
+  padding: 8px 12px; /* Increased padding */
   border-radius: 8px;
   overflow: visible;
   position: relative;
   white-space: nowrap;
   pointer-events: auto;
+  transition: all 0.3s ease;
 }
 
-/* Brand animation (staggered FLIP → STUDIO) */
-.brand-letter-container {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  height: 1em;
+.nav-link:hover {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Add background on hover for better visibility */
 }
 
-.brand-letter,
-.brand-letter-clone {
-  display: inline-block;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: var(--delay);
-}
-
-.brand-letter-clone {
-  position: absolute;
-  left: 0;
-  top: 100%;
-}
-
-/* On hover — smooth stairway rise */
-.brand:hover .brand-letter {
-  transform: translateY(-100%);
-}
-
-.brand:hover .brand-letter-clone {
-  transform: translateY(-100%);
-}
-
-/* Letter Animation for Nav Links */
+/* Letter Animation for Nav Links - Enhanced */
 .letter-container {
   display: inline-block;
   position: relative;
-  height: 1em;
+  height: 1.2em;
   overflow: hidden;
   vertical-align: middle;
 }
@@ -187,12 +194,14 @@
   transform: translateY(0);
   transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--delay);
+  font-weight: 500; /* Adjusted weight for Poppins */
 }
 
 .letter-clone {
   position: absolute;
   left: 0;
   top: 100%;
+  font-weight: 500;
 }
 
 /* Hover animation — vertical stairway with smooth rise */
@@ -204,44 +213,50 @@
   transform: translateY(-100%);
 }
 
-/* Let's Talk Button Styles - Sleek Expanding Design */
+/* Active state for nav links - Enhanced */
+.nav-link.active {
+  color: #fff;
+  font-weight: 600; /* Slightly bolder for active state */
+  background: rgba(255, 255, 255, 0.15); /* Background for active state */
+}
+
+/* Let's Talk Button Styles */
 .lets-talk-btn {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--fg);
   padding: 8px 12px;
   border-radius: 50px;
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif; /* Changed from Inter to Poppins */
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500; /* Increased weight */
   letter-spacing: 0.08em;
   cursor: pointer;
   display: flex;
-  
   gap: 0;
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   backdrop-filter: blur(10px);
   position: absolute;
-  right: 60px; /* Position to the left of hamburger menu */
+  right: 60px;
   overflow: hidden;
   width: 44px;
   height: 44px;
   white-space: nowrap;
   pointer-events: auto;
-  outline: none; /* Remove outline */
+  outline: none;
 }
 
 .lets-talk-btn:hover {
   width: 140px;
   gap: 8px;
   border-color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .lets-talk-btn:focus {
-  outline: none; /* Remove focus outline */
-  border-color: rgba(255, 255, 255, 0.6); /* Keep border color change on focus */
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .lets-talk-emoji {
@@ -260,7 +275,7 @@
   opacity: 0;
   transform: translateX(-10px);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  font-weight: 500;
+  font-weight: 500; /* Adjusted weight for Poppins */
   letter-spacing: 0.1em;
 }
 
@@ -277,9 +292,9 @@
   color: #fff;
   padding: 12px 24px;
   border-radius: 50px;
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif; /* Changed from Inter to Poppins */
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 500; /* Adjusted weight for Poppins */
   letter-spacing: 0.08em;
   cursor: pointer;
   display: flex;
@@ -287,7 +302,7 @@
   gap: 8px;
   transition: all 0.3s ease;
   margin-top: 20px;
-  outline: none; /* Remove outline for mobile button too */
+  outline: none;
 }
 
 .mobile-lets-talk-btn:hover {
@@ -296,7 +311,7 @@
 }
 
 .mobile-lets-talk-btn:focus {
-  outline: none; /* Remove focus outline for mobile */
+  outline: none;
 }
 
 /* Hamburger Button (Mobile Only) */
@@ -394,17 +409,12 @@
 
 .mobile-link {
   color: #fff;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.18em;
+  font-family: "Poppins", sans-serif; /* Changed from Inter to Poppins */
+  font-size: 18px; /* Slightly adjusted size */
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
-}
-
-/* Active state for nav links */
-.nav-link.active {
-  color: #fff;
-  font-weight: 600;
+  font-weight: 500; /* Adjusted weight for Poppins */
 }
 
 /* Responsive Adjustments */
@@ -425,12 +435,8 @@
     display: flex;
   }
 
-  .brand-flip {
-    font-size: 24px;
-  }
-
-  .brand-studio {
-    font-size: 18px;
+  .logo-image {
+    height: 38px; /* Slightly smaller on mobile but still visible */
   }
 
   .navbar-inner {
@@ -438,7 +444,7 @@
   }
 
   .lets-talk-btn {
-    display: none; /* Hide on mobile - we'll show it in the mobile menu */
+    display: none;
   }
 }
 
@@ -447,7 +453,7 @@
   .hamburger {
     right: 0;
   }
-  
+
   .lets-talk-btn {
     right: 60px;
   }

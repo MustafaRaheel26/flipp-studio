@@ -1,16 +1,16 @@
 /* ===== Overall Page Container ===== */
 
 @font-face {
-  font-family: 'Rollgates Luxury';
-  src: url('../assets/fonts/Rollgates Luxury.ttf') format('truetype');
+  font-family: 'NeueHaasDisplayBold';
+  src: url('../assets/fonts/NeueHaasDisplayBold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Branch';
-  src: url('../assets/fonts/Branch.ttf') format('truetype');
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -27,8 +27,8 @@
   align-items: flex-start;
   overflow: hidden;
   padding-top: 140px;
-  /* Base font set to Branch */
-  font-family: 'Branch', sans-serif;
+  /* Base font set to Poppins */
+  font-family: 'Poppins', sans-serif;
 }
 
 /* ===== Content Layout ===== */
@@ -57,8 +57,8 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   text-align: left;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  /* Changed to NeueHaasDisplayBold font */
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 /* ===== Right Section ===== */
@@ -78,8 +78,8 @@
   color: #aaa;
   max-width: 500px;
   text-align: left;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 /* ===== Form ===== */
@@ -107,8 +107,8 @@
   color: #fff;
   outline: none;
   transition: border-color 0.3s ease;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .form-group input:focus,
@@ -124,8 +124,8 @@
   font-size: 1rem;
   pointer-events: none;
   transition: all 0.3s ease;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .form-group input:focus + label,
@@ -151,8 +151,8 @@
   text-transform: uppercase;
   transition: all 0.4s ease;
   align-self: flex-end;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .send-text {
@@ -235,8 +235,8 @@
   font-weight: 500;
   font-size: 0.9rem;
   width: 100%;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .status-message.success {

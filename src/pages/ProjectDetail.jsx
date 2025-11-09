@@ -1,4 +1,3 @@
-// src/pages/ProjectDetail.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
@@ -53,92 +52,24 @@ const GalleryImage = ({ image, alt, className, delay = 0 }) => {
   );
 };
 
-// CrossGallery Component for main gallery
-const CrossGallery = ({ images, projectTitle }) => {
-  const galleryImages = images.slice(0, 5);
-
-  return (
-    <section className="cross-gallery">
-      <div className="cross-gallery-container">
-        <GalleryImage 
-          image={galleryImages[0]} 
-          alt={`${projectTitle} - View 1`}
-          className="image-top-left"
-          delay={0.1}
-        />
-
-        <GalleryImage 
-          image={galleryImages[1]} 
-          alt={`${projectTitle} - View 2`}
-          className="image-top-right"
-          delay={0.2}
-        />
-
-        <GalleryImage 
-          image={galleryImages[4]} 
-          alt={`${projectTitle} - Center View`}
-          className="image-center"
-          delay={0.3}
-        />
-
-        <GalleryImage 
-          image={galleryImages[2]} 
-          alt={`${projectTitle} - View 3`}
-          className="image-bottom-left"
-          delay={0.4}
-        />
-
-        <GalleryImage 
-          image={galleryImages[3]} 
-          alt={`${projectTitle} - View 4`}
-          className="image-bottom-right"
-          delay={0.5}
-        />
-      </div>
-    </section>
-  );
-};
-
-// Full Width Image Gallery
-const FullWidthGallery = ({ images, projectTitle, startIndex = 0 }) => {
-  const galleryImages = images.slice(startIndex, startIndex + 3);
+// Full Width Image Gallery - UPDATED: Now displays all images one by one
+const FullWidthGallery = ({ images, projectTitle, startIndex = 0, endIndex = null }) => {
+  const galleryImages = endIndex 
+    ? images.slice(startIndex, endIndex)
+    : images.slice(startIndex);
 
   return (
     <section className="fullwidth-gallery">
       <div className="fullwidth-gallery-container">
         {galleryImages.map((image, index) => (
           <GalleryImage 
-            key={index}
+            key={startIndex + index}
             image={image} 
-            alt={`${projectTitle} - Detail ${index + 1}`}
+            alt={`${projectTitle} - Detail ${startIndex + index + 1}`}
             className="fullwidth-image"
             delay={index * 0.2}
           />
         ))}
-      </div>
-    </section>
-  );
-};
-
-// Split Image Gallery (Left + Right)
-const SplitGallery = ({ images, projectTitle, startIndex = 0 }) => {
-  const galleryImages = images.slice(startIndex, startIndex + 2);
-
-  return (
-    <section className="split-gallery">
-      <div className="split-gallery-container">
-        <GalleryImage 
-          image={galleryImages[0]} 
-          alt={`${projectTitle} - Left View`}
-          className="split-image-left"
-          delay={0.1}
-        />
-        <GalleryImage 
-          image={galleryImages[1]} 
-          alt={`${projectTitle} - Right View`}
-          className="split-image-right"
-          delay={0.3}
-        />
       </div>
     </section>
   );
@@ -310,19 +241,24 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Project Content - Replaced text with image galleries */}
+      {/* Project Content - All images in full width one by one */}
       <section className="project-content-visual">
         
-        {/* Main Cross Gallery */}
+        {/* First set of images */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <CrossGallery images={project.images} projectTitle={project.title} />
+          <FullWidthGallery 
+            images={project.images} 
+            projectTitle={project.title} 
+            startIndex={0}
+            endIndex={Math.ceil(project.images.length / 3)}
+          />
         </motion.div>
 
-        {/* Full Width Gallery Section */}
+        {/* Second set of images */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -331,48 +267,21 @@ const ProjectDetail = () => {
           <FullWidthGallery 
             images={project.images} 
             projectTitle={project.title} 
-            startIndex={5}
+            startIndex={Math.ceil(project.images.length / 3)}
+            endIndex={Math.ceil(project.images.length * 2 / 3)}
           />
         </motion.div>
 
-        {/* Split Gallery Section */}
+        {/* Third set of images */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
         >
-          <SplitGallery 
-            images={project.images} 
-            projectTitle={project.title} 
-            startIndex={8}
-          />
-        </motion.div>
-
-        {/* Hero Image Section */}
-        {project.images[10] && (
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-          >
-            <HeroImage 
-              image={project.images[10]} 
-              alt={`${project.title} - Final View`}
-              delay={0.2}
-            />
-          </motion.div>
-        )}
-
-        {/* Final Full Width Gallery */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1 }}
-        >
           <FullWidthGallery 
             images={project.images} 
             projectTitle={project.title} 
-            startIndex={11}
+            startIndex={Math.ceil(project.images.length * 2 / 3)}
           />
         </motion.div>
 
@@ -381,7 +290,7 @@ const ProjectDetail = () => {
           className="project-navigation"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3 }}
+          transition={{ delay: 1.1 }}
         >
           <Link to="/projects" className="back-to-projects-btn">
             <span className="btn-arrow">←</span>

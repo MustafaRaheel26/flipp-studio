@@ -1,7 +1,6 @@
 // src/sections/Hero.jsx - UPDATED
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import './Hero.css';
 
 // Import images from assets folder
@@ -18,50 +17,42 @@ const heroSlides = [
   {
     id: 1,
     background: project1,
-    title: 'DIGITAL INNOVATION',
-    subtitle: 'Transforming ideas into exceptional digital experiences'
+    title: 'We Design Bespoke Solutions For Architecture And Interior Designs'
   },
   {
     id: 2,
     background: project2,
-    title: 'CREATIVE DESIGN',
-    subtitle: 'Crafting visually stunning and user-centric designs'
+    title: 'We Design Bespoke Solutions For Architecture And Interior Designs'
   },
   {
     id: 3,
     background: project3,
-    title: 'WEB DEVELOPMENT',
-    subtitle: 'Building performant and scalable web applications'
+    title: 'We Design Bespoke Solutions For Architecture And Interior Designs'
   },
   {
     id: 4,
     background: project4,
-    title: 'BRAND STRATEGY',
-    subtitle: 'Creating memorable brand identities that stand out'
+    title: 'We Design Bespoke Solutions For Architecture And Interior Designs'
   },
   {
     id: 5,
     background: project5,
-    title: 'UI/UX EXCELLENCE',
-    subtitle: 'Designing intuitive and engaging user experiences'
+    title: 'We Design Bespoke Solutions For Architecture And Interior Designs'
   },
   {
     id: 6,
     background: project6,
-    title: 'MOTION DESIGN',
-    subtitle: 'Bringing stories to life through captivating animation'
+    title: 'We Design Bespoke Solutions For Architecture And Interior Designs'
   },
   {
     id: 7,
     background: project7,
-    title: 'E-COMMERCE SOLUTIONS',
-    subtitle: 'Building seamless online shopping experiences'
+    title: 'We Design Bespoke Solutions For Architecture And Interior Designs'
   },
   {
     id: 8,
     background: project8,
-    title: 'MOBILE FIRST',
-    subtitle: 'Creating responsive designs for all devices'
+    title: 'We Design Bespoke Solutions For Architecture And Interior Designs'
   }
 ];
 
@@ -96,7 +87,7 @@ export default function Hero() {
         ))}
       </AnimatePresence>
 
-      {/* Content - UPDATED: Perfect center alignment */}
+      {/* Content - UPDATED: Removed button and centered text only */}
       <div className="hero-content">
         <AnimatePresence mode="wait">
           <motion.div
@@ -161,59 +152,6 @@ export default function Hero() {
             >
               {heroSlides[currentSlide].title}
             </motion.h1>
-            
-            {/* UPDATED: Center aligned subtitle container */}
-            <motion.div 
-              style={{ 
-                margin: '15px 0',
-                display: 'flex',
-                justifyContent: 'center',
-                width: '100%'
-              }}
-              initial={{ 
-                y: 40, 
-                opacity: 0,
-                scale: 0.95 
-              }}
-              animate={{ 
-                y: 0, 
-                opacity: 1,
-                scale: 1,
-                transition: {
-                  delay: 0.3,
-                  duration: 0.7,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }
-              }}
-            >
-              <p className="hero-subtitle">
-                {heroSlides[currentSlide].subtitle}
-              </p>
-            </motion.div>
-            
-            {/* UPDATED: Center aligned button container */}
-            <motion.div
-              className="hero-cta-container"
-              initial={{ 
-                scale: 0.5, 
-                opacity: 0,
-                y: 30 
-              }}
-              animate={{ 
-                scale: 1, 
-                opacity: 1,
-                y: 0,
-                transition: {
-                  delay: 0.5,
-                  duration: 0.6,
-                  ease: [0.34, 1.56, 0.64, 1],
-                }
-              }}
-            >
-              <Link to="/projects" className="hero-cta">
-                EXPLORE OUR WORK
-              </Link>
-            </motion.div>
           </motion.div>
         </AnimatePresence>
       </div>

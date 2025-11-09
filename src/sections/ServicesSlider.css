@@ -1,16 +1,16 @@
 /* src/sections/ServicesSlider.css */
 
 @font-face {
-  font-family: 'Rollgates Luxury';
-  src: url('../assets/fonts/Rollgates Luxury.ttf') format('truetype');
+  font-family: 'NeueHaasDisplayBold';
+  src: url('../assets/fonts/NeueHaasDisplayBold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Branch';
-  src: url('../assets/fonts/Branch.ttf') format('truetype');
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -45,8 +45,8 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   line-height: 1.1;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  /* Changed to NeueHaasDisplayBold font */
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .services-content {
@@ -70,8 +70,8 @@
   letter-spacing: 0.1em;
   min-height: 60px;
   line-height: 1.2;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  /* Changed to NeueHaasDisplayBold font */
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .service-description {
@@ -79,8 +79,8 @@
   line-height: 1.6;
   color: #ccc;
   margin-bottom: 30px;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .service-features {
@@ -103,8 +103,8 @@
   text-align: center;
   font-weight: 600;
   transition: all 0.3s ease;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .service-features li:hover {
@@ -126,8 +126,8 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .service-price {
@@ -138,8 +138,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Slider Styles */
@@ -223,8 +223,8 @@
   letter-spacing: 0.1em;
   line-height: 1.2;
   transition: transform 0.4s ease;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  /* Changed to NeueHaasDisplayBold font */
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .slider-slide:hover .slide-title {
@@ -290,6 +290,8 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  /* Use Poppins font for arrows */
+  font-family: 'Poppins', sans-serif;
 }
 
 .slider-arrow::before {
@@ -337,8 +339,8 @@
   gap: 12px;
   overflow: hidden;
   z-index: 3;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .view-details-btn::before {
