@@ -33,6 +33,7 @@
   --fg: #fff;
   --bg-top: transparent;
   --bg-scrolled: transparent;
+  --container-space: 220px; /* legacy placeholder - do not use for layout */
 }
 
 /* Base Navbar Styling */
@@ -50,7 +51,8 @@
     background-color 0.2s ease, backdrop-filter 0.2s ease;
   backdrop-filter: none;
   background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  /* remove visible divider so navbar blends with content beneath */
+  border-bottom: none;
   transform: translateY(0);
 }
 
@@ -58,7 +60,8 @@
 .navbar--scrolled,
 .navbar:not(.navbar--top) {
   background: #000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  /* remove thin visible line under navbar for seamless blend */
+  border-bottom: none;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -160,22 +163,42 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   display: inline-block;
-  padding: 8px 12px; /* Increased padding */
-  border-radius: 8px;
+  padding: 8px 16px; /* more right padding so expanded text doesn't touch border */
+  padding-bottom: 16px; /* increased space for underline */
+  border-radius: 0;
   overflow: visible;
   position: relative;
   white-space: nowrap;
   pointer-events: auto;
-  transition: all 0.3s ease;
+  transition: color 200ms ease;
 }
 
-.nav-link:hover {
-  background: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Add background on hover for better visibility */
+/* Remove background hover; replace with a smooth underline shown via ::after */
+.nav-link:hover,
+.nav-link:focus {
+  background: transparent;
+}
+
+/* underline pseudo-element - grows from left to right */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px; /* align with padding-left */
+  bottom: 8px; /* distance from bottom of text */
+  width: 0%; /* start with 0 width */
+  height: 2px;
+  background: rgba(255, 255, 255, 0.95);
+  transition: width 600ms cubic-bezier(0.34, 1.56, 0.64, 1); /* slower animation */
+  border-radius: 2px;
+  max-width: calc(
+    100% - 24px
+  ); /* ensure it doesn't exceed button width (subtract left + right padding) */
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link.active::after {
+  width: calc(100% - 24px); /* grow to full link width minus padding */
 }
 
 /* Letter Animation for Nav Links - Enhanced */
@@ -217,7 +240,7 @@
 .nav-link.active {
   color: #fff;
   font-weight: 600; /* Slightly bolder for active state */
-  background: rgba(255, 255, 255, 0.15); /* Background for active state */
+  background: transparent; /* keep no background; underline indicates active */
 }
 
 /* Let's Talk Button Styles */
@@ -238,6 +261,7 @@
   backdrop-filter: blur(10px);
   position: absolute;
   right: 60px;
+  z-index: 10001; /* ensure button sits above nav links while expanding */
   overflow: hidden;
   width: 44px;
   height: 44px;
@@ -247,7 +271,7 @@
 }
 
 .lets-talk-btn:hover {
-  width: 140px;
+  width: 120px; /* slight increase to keep text readable while not overlapping */
   gap: 8px;
   border-color: rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.1);
@@ -277,6 +301,7 @@
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   font-weight: 500; /* Adjusted weight for Poppins */
   letter-spacing: 0.1em;
+  margin-right: 8px; /* ensure gap between text and button border */
 }
 
 .lets-talk-btn:hover .lets-talk-text {

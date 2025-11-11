@@ -39,6 +39,125 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Button-86 Style - Complete Hover Effects */
+.button-86 {
+  all: unset;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+/* Main background layer */
+.button-86::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all .4s;
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #28282d;
+  border-radius: 0px;
+}
+
+/* Animated accent layer - Pink hue removed */
+.button-86::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all .4s;
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+}
+
+/* Hover State - Main background animation */
+.button-86:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+/* Hover State - Accent layer animation */
+.button-86:hover::after {
+  border-radius: 0px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure text color stays white on all states */
+.button-86:hover,
+.button-86:focus,
+.button-86:active {
+  color: #f0f0f0 !important;
+}
+
+/* Active/Click State */
+.button-86:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+
+/* Focus State for accessibility */
+.button-86:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Disabled State */
+.button-86:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-86:disabled:hover::before,
+.button-86:disabled:hover::after {
+  transform: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+}
+
 /* Navigation Header */
 .service-detail-header {
   padding: 100px 0 0;
@@ -55,19 +174,25 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Simple Back Button without button-86 effects */
 .back-btn {
-  color: #fff;
+  color: #f0f0f0;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  transition: color 0.3s ease;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
   font-family: 'Poppins', sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .back-btn:hover {
-  color: #ccc;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
 }
 
 .breadcrumb {
@@ -183,22 +308,8 @@
 }
 
 .cta-button {
-  background: #fff;
-  color: #000;
-  border: none;
-  padding: 18px 40px;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'NeueHaasDisplayBold', sans-serif;
-}
-
-.cta-button:hover {
-  background: #ccc;
-  transform: translateY(-2px);
+  width: auto;
+  height: auto;
 }
 
 /* Hero Visual */
@@ -218,53 +329,34 @@
   height: 500px;
   object-fit: cover;
   filter: brightness(0.9);
+  transition: opacity 0.8s ease-in-out;
 }
 
-.service-icon-hero {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.service-detail-icon {
-  width: 40px;
-  height: 40px;
-  stroke: #fff;
-  fill: none;
-}
-
-.image-thumbnails {
+/* Auto-slide Indicators */
+.slide-indicators {
   display: flex;
+  justify-content: center;
   gap: 10px;
+  margin-top: 20px;
 }
 
-.thumbnail {
-  flex: 1;
-  border: 2px solid transparent;
+.indicator {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: none;
   padding: 0;
 }
 
-.thumbnail.active {
+.indicator.active {
+  background: #fff;
   border-color: #fff;
 }
 
-.thumbnail img {
-  width: 100%;
-  height: 80px;
-  object-fit: cover;
-  filter: brightness(0.7);
-  transition: filter 0.3s ease;
-}
-
-.thumbnail.active img,
-.thumbnail:hover img {
-  filter: brightness(1);
+.indicator:hover {
+  border-color: #fff;
 }
 
 /* Process Section */
@@ -532,17 +624,15 @@
 
 .view-service {
   font-size: 0.8rem;
-  font-weight: 600;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-family: 'Poppins', sans-serif;
+  padding: 8px 16px;
+  width: auto;
+  height: auto;
 }
 
 /* CTA Section */
 .service-cta {
   padding: 100px 0;
-  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+  background: #000;
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
@@ -576,33 +666,8 @@
 .cta-secondary {
   padding: 18px 40px;
   font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  font-family: 'NeueHaasDisplayBold', sans-serif;
-}
-
-.cta-primary {
-  background: #fff;
-  color: #000;
-}
-
-.cta-primary:hover {
-  background: #ccc;
-}
-
-.cta-secondary {
-  background: transparent;
-  color: #fff;
-  border: 1px solid #fff;
-}
-
-.cta-secondary:hover {
-  background: #fff;
-  color: #000;
+  width: auto;
+  height: auto;
 }
 
 /* --- MOBILE RESPONSIVENESS --- */
@@ -655,6 +720,16 @@
   .main-service-image {
     height: 300px;
   }
+  
+  .button-86 {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .back-btn {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -674,16 +749,59 @@
     padding: 25px;
   }
   
-  .image-thumbnails {
-    flex-wrap: wrap;
+  .slide-indicators {
+    gap: 8px;
   }
   
-  .thumbnail {
-    flex: 0 0 calc(33.333% - 10px);
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .button-86 {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+  
+  .back-btn {
+    padding: 8px 16px;
+    font-size: 0.7rem;
+  }
+  
+  .cta-buttons {
+    gap: 15px;
+  }
+  
+  .cta-primary,
+  .cta-secondary {
+    padding: 15px 30px;
+    font-size: 0.9rem;
   }
 }
 
 /* Remove rounded corners */
 .service-detail-page * {
   border-radius: 0 !important;
+}
+
+/* Ensure all button text stays white */
+.button-86,
+.button-86:hover,
+.button-86:focus,
+.button-86:active,
+.cta-button,
+.cta-button:hover,
+.view-service,
+.view-service:hover,
+.cta-primary,
+.cta-primary:hover,
+.cta-secondary,
+.cta-secondary:hover {
+  color: #f0f0f0 !important;
+}
+
+/* Back button text color */
+.back-btn,
+.back-btn:hover {
+  color: #f0f0f0 !important;
 }

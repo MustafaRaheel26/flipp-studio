@@ -9,7 +9,7 @@
 
 .services-main-page {
   min-height: 100vh;
-  background: #000;
+  background: #000000;
   color: #fff;
   overflow-x: hidden;
   font-family: 'NeueHaasDisplayBold', sans-serif;
@@ -17,25 +17,17 @@
 
 /* Page Header */
 .services-header {
-  padding: 120px 20px 80px;
+  padding: 130px 20px 80px;
   text-align: center;
-  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+  background: #000000;
   position: relative;
   overflow: hidden;
   font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
+/* Remove gradient backgrounds */
 .services-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
-  pointer-events: none;
+  display: none;
 }
 
 .header-content {
@@ -49,7 +41,7 @@
 .page-title {
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   background: linear-gradient(135deg, #fff 0%, #ccc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -58,17 +50,7 @@
   letter-spacing: 0.1em;
   line-height: 1.1;
   font-family: 'NeueHaasDisplayBold', sans-serif;
-}
-
-.page-subtitle {
-  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-  color: #ccc;
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  font-family: 'NeueHaasDisplayBold', sans-serif;
+  margin-top: 10px;
 }
 
 /* Services Grid Section */
@@ -76,6 +58,7 @@
   padding: 60px 20px;
   max-width: 1400px;
   margin: 0 auto;
+  background: #000000;
   font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
@@ -95,7 +78,7 @@
 
 .service-card-hotel {
   position: relative;
-  background: #000;
+  background: #000000;
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -178,24 +161,10 @@
   font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
-.service-icon-hotel {
-  opacity: 0.9;
-  flex-shrink: 0;
-  font-family: 'NeueHaasDisplayBold', sans-serif;
-}
-
-.service-icon {
-  width: 40px;
-  height: 40px;
-  stroke: #fff;
-  fill: none;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
-}
-
 /* Learn More Button */
 .learn-more-btn {
   background: #fff;
-  color: #000;
+  color: #000000;
   padding: 12px 24px;
   font-size: 0.9rem;
   font-weight: 700;
@@ -234,6 +203,7 @@
   align-items: center;
   height: 400px;
   width: 100%;
+  background: #000000;
   font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
@@ -272,11 +242,13 @@
 
 @media (max-width: 768px) {
   .services-header {
-    padding: 100px 15px 60px;
+    padding: 110px 15px 60px;
+    background: #000000;
   }
   
   .services-grid-section {
     padding: 40px 15px;
+    background: #000000;
   }
   
   /* Stack to single column on mobile */
@@ -305,11 +277,6 @@
     font-size: 1.4rem;
   }
   
-  .service-icon {
-    width: 35px;
-    height: 35px;
-  }
-  
   .learn-more-btn {
     align-self: stretch;
     text-align: center;
@@ -319,7 +286,8 @@
 
 @media (max-width: 480px) {
   .services-header {
-    padding: 80px 10px 40px;
+    padding: 90px 10px 40px;
+    background: #000000;
   }
   
   .page-title {
@@ -328,6 +296,7 @@
   
   .services-grid-section {
     padding: 30px 10px;
+    background: #000000;
   }
   
   .service-card-hotel {
@@ -340,11 +309,6 @@
   
   .service-title-hotel {
     font-size: 1.2rem;
-  }
-  
-  .service-icon {
-    width: 30px;
-    height: 30px;
   }
   
   .learn-more-btn {

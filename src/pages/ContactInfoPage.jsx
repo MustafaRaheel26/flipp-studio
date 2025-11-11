@@ -65,18 +65,16 @@ const ContactInfoPage = () => {
       <div className="islamic-pattern"></div>
       
       <div className="contact-container">
-        {/* Header with Arabic influence */}
+        {/* Header */}
         <div className="contact-header">
           <div className="title-decoration">
             <div className="decoration-line left"></div>
             <h1 className="main-title">
               <span className="title-word">OUR</span>
-              <span className="title-word">PRESENCE</span>
+              <span className="title-word">CONTACT</span>
             </h1>
             <div className="decoration-line right"></div>
           </div>
-          <p className="subtitle">Connecting Vision with Tradition Across the Gulf</p>
-          <div className="arabic-calligraphy">ﻋﻤﺎﺭﺓ</div>
         </div>
 
         {/* Centered branches list - effects preserved */}
@@ -111,44 +109,6 @@ const ContactInfoPage = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* New Animated Mission Statement */}
-        <div className="mission-section">
-          <div className="mission-content">
-            <div className="mission-text-scroll">
-              <p className="mission-statement">
-                <span className="mission-word">Crafting</span>
-                <span className="mission-word">architectural</span>
-                <span className="mission-word">masterpieces</span>
-                <span className="mission-word">that</span>
-                <span className="mission-word">blend</span>
-                <span className="mission-word">modern</span>
-                <span className="mission-word">innovation</span>
-                <span className="mission-word">with</span>
-                <span className="mission-word">Arabian</span>
-                <span className="mission-word">heritage</span>
-                <span className="mission-word">across</span>
-                <span className="mission-word">the</span>
-                <span className="mission-word">Middle</span>
-                <span className="mission-word">East</span>
-              </p>
-            </div>
-            <div className="mission-stats">
-              <div className="stat-item">
-                <span className="stat-number">15+</span>
-                <span className="stat-label">Years Experience</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">200+</span>
-                <span className="stat-label">Projects Completed</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">6</span>
-                <span className="stat-label">GCC Countries</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

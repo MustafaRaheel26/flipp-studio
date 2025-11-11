@@ -35,7 +35,7 @@
 .about-page {
   background: #000;
   color: #fff;
-  font-family: "Branch", sans-serif;
+  font-family: "Poppins", sans-serif;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -64,8 +64,7 @@
   line-height: 1.1;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .about-subtitle {
@@ -73,8 +72,7 @@
   line-height: 1.9;
   max-width: 700px;
   margin: 0 auto;
-  /* Changed to Branch font with readability improvements */
-  font-family: 'Branch', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   letter-spacing: 0.05em;
   color: #ddd;
@@ -136,8 +134,7 @@
   font-weight: 600;
   margin-bottom: clamp(1rem, 3vw, 2rem);
   letter-spacing: -0.01em;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .card-content-wrap {
@@ -148,8 +145,7 @@
   font-size: clamp(1rem, 2.2vw, 1.15rem);
   line-height: 1.85;
   margin-bottom: 1.5rem;
-  /* Changed to Branch font with readability improvements */
-  font-family: 'Branch', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   letter-spacing: 0.035em;
   color: #ccc;
@@ -204,8 +200,7 @@
   margin-bottom: 1rem;
   line-height: 1;
   text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .stat-label {
@@ -215,16 +210,14 @@
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .stat-desc {
   font-size: clamp(0.95rem, 2.1vw, 1rem);
   line-height: 1.75;
   margin: 0;
-  /* Changed to Branch font with readability improvements */
-  font-family: 'Branch', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   letter-spacing: 0.03em;
   color: #bbb;
@@ -289,8 +282,7 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .value-desc {
@@ -298,8 +290,7 @@
   line-height: 1.8;
   text-align: center;
   margin: 0;
-  /* Changed to Branch font with readability improvements */
-  font-family: 'Branch', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   letter-spacing: 0.035em;
   color: #bbb;
@@ -355,23 +346,20 @@
   color: #666;
   margin-right: clamp(1rem, 3vw, 2rem);
   min-width: clamp(40px, 10vw, 60px);
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .process-title {
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   margin-bottom: 0.5rem;
   font-weight: 600;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .process-desc {
   font-size: clamp(0.95rem, 2.1vw, 1rem);
   line-height: 1.85;
-  /* Changed to Branch font with readability improvements */
-  font-family: 'Branch', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   letter-spacing: 0.03em;
   color: #ccc;
@@ -455,8 +443,7 @@
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   margin-bottom: 0.3rem;
   font-weight: 600;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .team-role {
@@ -465,16 +452,14 @@
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 .team-bio {
   font-size: clamp(0.95rem, 2.1vw, 1rem);
   line-height: 1.8;
   margin-bottom: 1rem;
-  /* Changed to Branch font with readability improvements */
-  font-family: 'Branch', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   letter-spacing: 0.025em;
   color: #ccc;
@@ -487,8 +472,7 @@
 .team-achievements {
   font-size: clamp(0.9rem, 1.9vw, 0.95rem);
   line-height: 1.75;
-  /* Changed to Branch font with readability improvements */
-  font-family: 'Branch', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   letter-spacing: 0.03em;
   color: #aaa;
@@ -513,8 +497,7 @@
   margin: 0 auto;
   line-height: 1.5;
   letter-spacing: -0.01em;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 /* ===== Responsive Design ===== */

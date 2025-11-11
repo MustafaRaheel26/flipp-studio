@@ -16,6 +16,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueHaasDisplayBold';
+  src: url('../assets/fonts/NeueHaasDisplayBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .advanced-footer {
   background: #000;
   color: #fff;
@@ -23,8 +39,8 @@
   padding: 80px 0 40px;
   position: relative;
   overflow: hidden;
-  /* Base font set to Branch */
-  font-family: 'Branch', sans-serif;
+  /* Base font set to Poppins */
+  font-family: 'Poppins', sans-serif;
 }
 
 .footer-inner {
@@ -56,7 +72,7 @@
 }
 
 .brand-flip {
-  font-family: "Creato Display", sans-serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
   font-weight: 800;
   font-size: 2rem;
   letter-spacing: 0.12em;
@@ -65,7 +81,7 @@
 }
 
 .brand-studio {
-  font-family: "Caghen Demo", serif;
+  font-family: 'NeueHaasDisplayBold', sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1;
@@ -78,8 +94,8 @@
   line-height: 1.6;
   color: rgba(255,255,255,0.7);
   max-width: 300px;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .footer-sections {
@@ -95,8 +111,8 @@
   margin-bottom: 25px;
   color: #fff;
   font-weight: 600;
-  /* Changed to Rollgates Luxury font */
-  font-family: 'Rollgates Luxury', sans-serif;
+  /* Changed to NeueHaasDisplayBold font */
+  font-family: 'NeueHaasDisplayBold', sans-serif;
 }
 
 /* Flip Links */
@@ -137,8 +153,8 @@
   color: rgba(255,255,255,0.8);
   font-size: 0.9rem;
   transition: color 0.3s ease;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .flip-link-back {
@@ -146,8 +162,8 @@
   transform: rotateX(180deg);
   font-size: 1rem;
   font-weight: 600;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .flip-link:hover .flip-link-front {
@@ -164,8 +180,8 @@
 .footer-link {
   color: rgba(255,255,255,0.8);
   font-size: 0.9rem;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .link-content {
@@ -251,8 +267,8 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .footer-legal {
@@ -267,8 +283,8 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: color 0.3s ease;
-  /* Changed to Branch font */
-  font-family: 'Branch', sans-serif;
+  /* Changed to Poppins font */
+  font-family: 'Poppins', sans-serif;
 }
 
 .footer-legal a:hover {
